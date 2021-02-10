@@ -10,7 +10,7 @@ import { AntDesign } from '@expo/vector-icons';
 import { Entypo } from '@expo/vector-icons';
 import NotFoundScreen from '../screens/NotFoundScreen';
 import { RootStackParamList } from '../types';
-import BottomTabNavigator from './BottomTabNavigator';
+import MainTabNavigator from './MainTabNavigator';
 import LinkingConfiguration from './LinkingConfiguration';
 import Colors from '../constants/Colors';
 
@@ -47,13 +47,20 @@ function RootNavigator() {
     >
       <Stack.Screen
         name='Root'
-        component={BottomTabNavigator}
+        component={MainTabNavigator}
         options={{
           title: 'WhatsApp',
           headerRight: () => (
-            <View>
-              <AntDesign name='search1' size={24} color='black' />
-              <Entypo name='dots-three-vertical' size={24} color='black' />
+            <View
+              style={{
+                flexDirection: 'row',
+                width: 60,
+                justifyContent: 'space-between',
+                marginRight: 10,
+              }}
+            >
+              <AntDesign name='search1' size={22} color='white' />
+              <Entypo name='dots-three-vertical' size={22} color='white' />
             </View>
           ),
         }}
