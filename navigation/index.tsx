@@ -5,8 +5,9 @@ import {
 } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import * as React from 'react';
-import { ColorSchemeName } from 'react-native';
-
+import { ColorSchemeName, View } from 'react-native';
+import { AntDesign } from '@expo/vector-icons';
+import { Entypo } from '@expo/vector-icons';
 import NotFoundScreen from '../screens/NotFoundScreen';
 import { RootStackParamList } from '../types';
 import BottomTabNavigator from './BottomTabNavigator';
@@ -44,7 +45,19 @@ function RootNavigator() {
         },
       }}
     >
-      <Stack.Screen name='Root' component={BottomTabNavigator} />
+      <Stack.Screen
+        name='Root'
+        component={BottomTabNavigator}
+        options={{
+          title: 'WhatsApp',
+          headerRight: () => (
+            <View>
+              <AntDesign name='search1' size={24} color='black' />
+              <Entypo name='dots-three-vertical' size={24} color='black' />
+            </View>
+          ),
+        }}
+      />
       <Stack.Screen
         name='NotFound'
         component={NotFoundScreen}
